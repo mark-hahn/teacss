@@ -8,12 +8,19 @@
     "url": "git+https://github.com/mark-hahn/teacss.git"
   },
   "keywords": [
-    "css", "teacup", "namespace", "javascript", "coffeescript"
+    "css",
+    "teacup",
+    "namespace",
+    "javascript",
+    "coffeescript"
   ],
   "author": "Mark Hahn",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mark-hahn/teacss/issues"
   },
-  "homepage": "https://github.com/mark-hahn/teacss#readme"
+  "homepage": "https://github.com/mark-hahn/teacss#readme",
+  "dependencies": {
+    "fs-plus": "^2.8.1"
+  }
 }
