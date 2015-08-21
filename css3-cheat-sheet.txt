@@ -1,5 +1,4 @@
-Page 1 of 5                                                       Quick Reference Guide                                                                        FREE                           Cascading Style Sheets (CSS 3)
-                  BACKGROUND                                               BORDER                                                BOX MODEL
+~~~0
 background              background-image             border-top                 border-top-width               float                  left | right | none
                         background-position                                     border-style
                         background-size                                         border-color                   height                 auto
@@ -16,7 +15,7 @@ background-attachment   scroll | fixed
                                                      border-width               thin | medium | thick
 background-break        bounding-box | each-box |                                                                                     length
                                                                                 length
-                        continuous                                                                                                    %
+                        |continuous                                                                                                   %
                                                      border-radius              border-top-right-radius
 background-clip         length                                                                                 min-height             none | inherit
                                                                                 border-bottom-right-radius
@@ -36,11 +35,11 @@ background-image        url                                                     
                                                                                                                                       length
                                                      border-top-left-radius     length
 background-origin       border-box | padding-box |
-                        content-box                                                                            margin                 margin-top
-                                                     box-shadow                 inset || [ length, length,                            margin-right
-background-position     top left | top center | top                             length, length || <color> ]                           margin-bottom
-                        right | center left | center                            none                                                  margin-left
-                        center | center right |
+                        content-box                                                                            margin                 margin-top|
+                                                     box-shadow                                                                       margin-right|
+background-position     topleft | topcenter | top-                              length, length  <color> ]                             margin-bottom|
+                        right | centerleft | center-                            none                                                  margin-left|
+                        center | center-right |
                                                      border-style               none | hidden | dotted |
                         bottom left | bottom center                                                            margin-bottom          auto
                                                                                 dashed | solid | double |
@@ -50,7 +49,7 @@ background-position     top left | top center | top                             
                                                                                 outset
                         x-pos y-pos
                                                                                                                margin-left            auto
-                                                                            FONT                                                      length
+~~~1
 background-repeat       repeat | repeat-x | repeat-
                                                                                                                                       %
                         y | no-repeat                font                      font-style
@@ -62,7 +61,6 @@ background-size         length
                         auto | cover | contain
                                                                                font-family
                                                                                caption | icon | menu |         margin-top             auto
-                    BORDER
                                                                                message-box | small-                                   length
 border                  border-width                                           caption | status-bar                                   %
                         border-style
@@ -76,7 +74,7 @@ border-break            border-width                                           i
                                                                                medium | large | x-large |      padding-bottom         length
                         close
                                                                                xx-large | smaller | larger |                          %
-border-bottom           border-bottom-width                                    inherit
+border-bottom           border-bottom-width                                    |inherit
                                                                                                                padding-left           length
                         border-style                                           length
                                                                                                                                       %
@@ -99,18 +97,18 @@ border-color            color                                                  e
                                                                                                                marquee-play-count     infinite
 border-image            image                        font-style                normal | italic | oblique |
                                                                                                                                       integer
-                        [ number / %                                           inherit
+                        [ number / %                                           |inherit
                         border-width                                                                           marquee-speed          slow | normal | fast
                                                      font-variant              normal | small-caps | inherit
-                        stretch | repeat | round ]font
+                        stretch | repeat | round
                         none                                                                                   marquee-style          scroll | slide | alternate
                                                      font-weight               normal | bold | bolder |
 border-left             border-left-width                                      lighter | 100 | 200 | 300 |     overflow               visible | hidden | scroll |
                                                                                400 | 500 | 600 | 700 | 800
                         border-style                                                                                                  auto | no-display | no-
-                        border-color                                           | 900 | inherit                                        content
-                                                                                                                                      overflow-x
-border-left-color       border-color                                      BOX MODEL                                                   overflow-y
+                        border-color                                           | 900 | inherit                                        content|
+                                                                                                                                      |overflow-x
+border-left-color       border-color                                                                                                  |overflow-y
 border-left-style       border-style                 clear                     left | right | both | none      overflow-style         auto | marquee-line | mar-
                                                                                                                                       quee-block
 border-left-width       thin | medium | thick        display                   none | inline | block | inline-
@@ -127,14 +125,12 @@ border-right-style      border-style
                                                                                | ruby-text-group
 border-right-width      thin | medium | thick                                                                  rotation-point         position (paired value off-
                         length                                                                                                        set)
-                                                                                                               visibility             visible | hidden | collapsehttp://www.veign.com                                              Part Number: QRG0008                                      �2009 Veign, All Rights Reserved
-Page 2 of 5                                                          Quick Reference Guide                                                                          FREE                               Cascading Style Sheets (CSS 3)
-                     TEXT                                              TEMPLATE LAYOUT                                                 SPEECH
-direction              ltr | rtl | inherit              box-align               start | end | center | base-    voice-family               inherit | [ <specific-voice,
-                                                                                                                                           age, generic-voice, num-
-hanging-punctuation    none | [ start | end | end-
-                                                                                                                                           ber> ]
-                       edge ]                           box-direction           normal | reverse
+~~~2
+direction              ltr | rtl | inherit              box-align               start | end | center |          voice-family               inherit | specific-voice
+                                                                                                                                           |age, generic-voice, number
+hanging-punctuation    none | start | end | end-edge
+                                                                                                                                           
+                                                        box-direction           normal | reverse
                                                                                                                 voice-rate                 x-slow | slow | medium |
 letter-spacing         normal                           box-flex                number
                                                                                                                                            fast | x-fast | inherit
@@ -142,9 +138,8 @@ letter-spacing         normal                           box-flex                
                                                                                                                                            %
                        %                                box-flex-group          integer
                                                                                                                 voice-pitch                x-low | low | medium | high
-punctuation-trim       none | [start | end | adja-      box-lines               single | multiple
+punctuation-trim       none | start | end | adjacent    box-lines               single | multiple
                                                                                                                                            | x-high | inherit
-                       cent]
                                                         box-orient              horizontal | vertical | inline-                            number
                                                                                                                                            %
 text-align             start | end | left | right |                             axis | block-axis
@@ -159,21 +154,20 @@ text-align-last        start | end | left | right |
 text-decoration        none | underline | overline |
                                                         tab-side                top | bottom | left | right                                reduced | inherit
                        line-through | blink
-                                                                                                                voice-volume               silent | x-soft | soft | me-
-text-emphasis          none | [ [ accent | dot | circle                     TABLE
-                                                                                                                                           dium | loud | x-loud | inherit
-                       | disc] [ before | after ]? ]
+                                                                                                                voice-volume               silent | x-soft | soft | medium
+text-emphasis          none | accent | dot | circle                      
+                                                                                                                                           | loud | x-loud | inherit
+                       | disc | before | after
                                                         border-collapse         collapse | separate                                        number
 text-indent            length                                                                                                              %
                        %                                border-spacing          length length
-                                                                                                                                   LIST & MARKERS
 text-justify           auto | inter-word | inter-       caption-side            top | bottom | left | right
-                       ideograph | inter-cluster |                                                              list-style                 list-style-type
-                       distribute | kashida | tibetan   empty-cells             show | hide                                                list-style-position
-                                                                                                                                           list-style-image
+                       ideograph | inter-cluster |                                                              list-style                 list-style-type|
+                       distribute | kashida | tibetan   empty-cells             show | hide                                                list-style-position|
+                                                                                                                                           list-style-image|
 text-outline           none                             table-layout            auto | fixed
                        color                                                                                    list-style-image           none
-                       length                                               SPEECH                                                         url
+                       length                                                                                                              url
 text-shadow            none                             cue                     cue-before                      list-style-position        Inside | outside
                        color                                                    cue-after
                        length                                                                                   list-style-type            none | asterisks | box |
@@ -181,8 +175,8 @@ text-shadow            none                             cue                     
 text-transform         none | capitalize | uppercase                            medium | loud | x-loud] |                                  disc | hyphen | square |
                        | lowercase                                              none | inherit ]                                           decimal | decimal-leading-
                                                                                 number                                                     zero | lower-roman | upper-
-text-wrap              normal | unrestricted | none                             %                                                          roman | lower-alpha | up-
-                       | suppress                                                                                                          per-alpha | lower-greek |
+text-wrap              normal | unrestricted | none                             %                                                          roman | lower-alpha | upper-
+                       | suppress                                                                                                          alpha | lower-greek |
                                                         cue-after               uri [ silent | x-soft | soft |                             lower-latin | upper-latin |
 unicode-bidi           normal | embed | bidi-                                   medium | loud | x-loud] |                                  hebrew | armenian | geor-
                        override                                                 none | inherit ]                                           gian | cjk-ideographic |
@@ -198,7 +192,7 @@ white-space-collapse   preserve | collapse | pre-
                                                                                                                                            length
                                                         mark-before             string
 word-break             normal | keep-all | loose |
-                       break-strict | break-all                                                                                     ANIMATIONS
+                       break-strict | break-all                                                                           
                                                         mark-after              string
 word-spacing           normal                                                                                   animation                  animation-name
                                                         pause                   pause-before
@@ -209,21 +203,21 @@ word-spacing           normal                                                   
                                                         pause-before            none | x-weak | weak |
 word-wrap              normal | break-word                                                                                                 animation-iteration-count
                                                                                 medium | strong | x-strong                                 animation-direction
-                    COLUMN                                                      | inherit
+                                                                                | inherit
                                                                                 time                            animation-delay            time
 column-count           auto
                        number                           pause-after             none | x-weak | weak |          animation-direction        normal | alternate
                                                                                 medium | strong | x-strong
 column-fill            auto | balance                                           | inherit                       animation-duration         time
                                                                                 time
-column-gap             normal                                                                                   animation-iteration-count inherit
+column-gap             normal                                                                                   animation-iteration-count  inherit
                        length                           phonemes                string                                                     number
-column-rule            column-rule-width                rest                    rest-before                     animation-name             none | IDENT
+column-rule            column-rule-width                rest                    rest-before                     animation-name             none
                        column-rule-style                                        rest-after
                                                                                                                 animation-play-state       running | paused
                        column-rule-color
                                                         rest-before             none | x-weak | weak |
-                                                                                                                animation-timing-function ease | linear | ease-in |
+                                                                                                                animation-timing-function  ease | linear | ease-in |
 column-rule-color      color                                                    medium | strong | x-strong
                                                                                                                                            ease-out | ease-in-out |
                                                                                 | inherit
@@ -231,7 +225,7 @@ column-rule-style      border-style                                             
                                                                                 time
                                                                                                                                            ber, number, number)
 column-rule-width      thin | medium | thick            rest-after              none | x-weak | weak |
-                       length                                                   medium | strong | x-strong                          TRANSITIONS
+                       length                                                   medium | strong | x-strong                 
                                                                                 | inherit
 columns                column-width                                                                             transition                 transition-property
                                                                                 time
@@ -242,19 +236,18 @@ column-span            1 | all
 column-width           auto                                                     no-punctuation | inherit
                                                                                                                 transition-delay           time
                        length
-                                                        voice-balance           left | center | right | left-
+                                                        voice-balance           left | center | right | 
+                                                                                leftwards|
                                                                                                                 transition-duration        time
-                                                                                wards | rightwards | inherit
-                    COLOR
+                                                                                | rightwards | inherit
                                                                                 number                          transition-property        none | all
 color                  inherit
                                                         voice-duration          time
                        color                                                                                    transition-timing-function ease | linear | ease-in |
                                                                                                                                            ease-out | ease-in-out |
 opacity                inherit                                                                                                             cubic-Bezier (number, num-
-                       number                                                                                                              ber, number, number)http://www.veign.com                                                Part Number: QRG0008                                      �2009 Veign, All Rights Reserved
-Page 3 of 5                                                               Quick Reference Guide                                                                           FREE                                Cascading Style Sheets (CSS 3)
-                  GRID POSITIONING                                          GENERATED CONTENT                                                LINE BOX
+                       number                                                                                                              ber, number, number)
+~~~3
 grid-columns               none | inherit                   hyphenate-after             auto                           line-height                normal
                            [ length percentage relative                                 integer                                                   number
                            length ]                                                                                                               length
@@ -266,7 +259,6 @@ grid-rows                  none | inherit                                       
                                                                                                                                                   line-stacking-ruby
                                                                                         string
                                                                                                                                                   line-stacking-shift
-                      OUTLINE
                                                             hyphenate-lines             no-limit
                                                                                                                        line-stacking-strategy     inline-line-height | block-
 outline                    outline-color                                                integer
@@ -279,12 +271,12 @@ outline                    outline-color                                        
 outline-color              color
                            invert                           hyphens                     none | manual | auto
                                                                                                                        line-stacking-shift        consider-shifts | disregard-
-                                                                                                                                                  shifts
+                                                                                                                                                  shifts|
 outline-offset             inherit                          image-resolution            normal | auto
                            length                                                       dpi
                                                                                                                        text-height                auto | font-size | text-size |
-                                                                                                                                                  max-size
-outline-style              None | dotted | dashed |         marks                       [ crop || cross ] | none
+                                                                                                                                                  max-size|
+outline-style              None | dotted | dashed |         marks                       crop | cross | none
                            solid | double | groove |                                                                   vertical-align             Baseline | sub | super | top
                                                             move-to                     normal | here
                            ridge | inset | outset                                                                                                 | text-top | middle | bottom
@@ -295,8 +287,7 @@ outline-width              thin | medium | thick
                            length
                                                                                                                                                   %
                                                             quotes                      none
-                 3D / 2D TRANSFORM
-                                                                                        string string string string                         HYPERLINK
+                                                                                        string
 backface-visibility        visible | hidden                                                                            target                     target-name
                                                             string-set                  identifier
                                                                                                                                                   target-new
@@ -309,37 +300,38 @@ perspective-origin         [ [ [ percentage> |                                  
                                                                                                                                                   | modal
                            <length> | left | center |
                                                                                                                                                   string
-                           right ] [ <percentage> |                                LINE BOX
+                           right ] [ <percentage> |                                
                            <length> | top | center |                                                                   target-new                 window | tab | none
                            bottom ]? ] <length> ] |         alignment-adjust            auto | baseline | before-
                            [ [ [ left | center | right ] ||                             edge | text-before-edge |      target-position            above | behind | front |
                            [ top | center | bottom ] ]                                  middle | central | after-edge                             back
                            <length> ]                                                   | text-after-edge | ideo-
-                                                                                        graphic | alphabetic | hang-                       POSITIONING
+                                                                                        graphic | alphabetic | hang-
+~~~4
 transform                  none | matrix | matrix3d |                                   ing | mathematical
                            translate3d | translateX |                                   length                         bottom                    auto
                            translateY | translateZ |                                    %                                                        %
                            scale | scale3d | scaleX |                                                                                            length
-                           scaleY | scaleZ | rotate |       alignment-baseline          baseline | use-script | be-
+                           scaleY | scaleZ | rotate |       alignment-baseline          baseline | use-script | 
                                                                                                                        clip                      shape
-                           rotate3d | rotateX | rotateY                                 fore-edge | text-before-
+                           rotate3d | rotateX | rotateY                                 before-edge | text-before-
                                                                                                                                                  auto
                            | rotateZ | skewX | skewY |                                  edge | after-edge | text-
                            skew | perspective                                           after-edge | central | middle
                                                                                                                        left                      auto
                                                                                         | ideographic | alphabetic |
                                                                                                                                                  %
-transform-origin           [ [ [ <percentage> |                                         hanging | mathematical
+transform-origin                                                                        hanging | mathematical
                                                                                                                                                  length
-                           <length> | left | center |
-                           right ] [ <percentage> |         baseline-shift              baseline | sub | super
+                           left | center |
+                           right|                           baseline-shift              baseline | sub | super
                                                                                                                        position                  static | relative | absolute |
-                           <length> | top | center |                                    length
+                                                                                        length
                                                                                                                                                  fixed
-                           bottom ]? ] <length> ] |                                     %
-                           [ [ [ left | center | right ] ||                                                            right                     auto
+                                                                                        %
+                                                                                                                       right                     auto
                                                             dominant-baseline           auto | use-script | no-
-                           [ top | center | bottom ] ]                                                                                           %
+                           top  | bottom                                                                                                         %
                                                                                         change | reset-size | alpha-
                            <length> ]                                                                                                            length
                                                                                         betic | hanging | ideo-
@@ -347,16 +339,16 @@ transform-style            flat | preserve-3d                                   
                                                                                                                        top                       auto
                                                                                         central | middle | text-after-
                                                                                                                                                  %
-                GENERATED CONTENT                                                       edge | text-before-edge
+                                                                                        edge | text-before-edge
                                                                                                                                                  length
+~~~5
 bookmark-label            content                           drop-initial-after-align    alignment-baseline
                                                                                                                        z-index                   auto
                           attr                                                                                                                   number
                                                             drop-initial-after-adjust   central | middle | after-edge
                           string
-                                                                                        | text-after-edge | ideo-
-                                                                                                                                              RUBY
-bookmark-level            none                                                          graphic | alphabetic |
+                                                                                        | text-after-edge | 
+bookmark-level            none                                                          ideographic | alphabetic |
                           integer                                                       mathematical
                                                                                                                        ruby-align                 auto | start | left | center |
                                                                                         length
@@ -364,12 +356,12 @@ bookmark-level            none                                                  
 bookmark-target           self                                                          %
                                                                                                                                                   | distribute-space | line-
                           uri
-                                                                                                                                                  edge
+                                                                                                                                                  edge|
                           attr                              drop-initial-before-align   caps-height
                                                                                         alignment-baseline
                                                                                                                        ruby-overhang              auto | start | end | none
 border-length             auto
-                          length                            drop-initial-before-adjust before-edge | text-before-
+                          length                            drop-initial-before-adjust  before-edge | text-before-
                                                                                                                        ruby-position              before | after | right | inline
                                                                                         edge | central | middle |
 content                   normal | none | inhibit                                       hanging | mathematical         ruby-span                  attr(x) | none
@@ -386,12 +378,11 @@ crop                      auto                                                  
 display                   normal | none | list-item
                                                             inline-box-align            initial | last
                                                                                         integer
-float-offset              length lengthhttp://www.veign.com                                                     Part Number: QRG0008                                        �2009 Veign, All Rights Reserved
-Page 4 of 5                                              Quick Reference Guide                                                                   FREE                             Cascading Style Sheets (CSS 3)
-                 PAGED MEDIA
+float-offset              length length
+~~~6
 fit                    fill | hidden | meet | slice
-fit-position           [top | center | bottom] ||
-                       [left | center | right]
+fit-position           top | center | bottom |
+                       left | right
                        length
                        %
 image-orientation      auto
@@ -407,7 +398,6 @@ page-break-inside      auto | avoid
 size                   auto | landscape | portrait
                        length
 windows                integer
-                     UI
 appearance             normal | inherit | [icon |
                        window | desktop | work-
                        space | document | tooltip |
@@ -433,136 +423,16 @@ icon                   auto | inherit
 nav-index              auto | inherit
                        number
 nav-up                 auto | inherit
-                       <id> [ current | root |
+                       current | root
                        <target-name> ]
 nav-right              auto | inherit
-                       <id> [ current | root |
+                       current | root |
                        <target-name> ]
 nav-down               auto | inherit
-                       <id> [ current | root |
+                       current | root |
                        <target-name> ]
 nav-left               auto | inherit
-                       <id> [ current | root |
+                       current | root |
                        <target-name> ]
 resize                 none | both | horizontal |
-                       vertical | inherit                                                                                  �Values in italics are place holders for an actual value (like 1px,
-                                                                                   1em, 1%), values in normal text are values that can be used as
-                                                                                   the actual value
-                                                                                  �CSS Properties in Dark Red are shorthand properties and each
-                                                                                   value must be defined. The exception is where the property can
-                                                                                   define from one to four of the sides of a box element property
-                                                                                   (Top-Right-Bottom-Left) - i.e. border-widthhttp://www.veign.com                                     Part Number: QRG0008                      �2009 Veign, All Rights Reserved
-Page 5 of 5                                                            Quick Reference Guide                                                                         FREE                              Cascading Style Sheets (CSS 3)
-                    PSEUDO-CLASS                                                 UNITS                                              SELECTOR TYPES
-:active                    an activated element                         ABSOLUTE MEASUREMENT                          Name           Info                Example
-:focus                     an element while the           %                     percentage                         Universal  Any element       * { font: 10px Arial; }
-                           element has focus
-                                                          cm                    centimeter                         Type       Any element of h1 { text-decoration:
-:visited                   a visited link                                                                                     that type         underline; }
-                                                          in                    inch
-:hover                     an element when you mouse                                                               Grouping   Multiple          h1, h2, h3 { font-family:
-                           over it                                                                                            elements of       Verdana; }
-                                                          mm                    millimeter
-                                                                                                                              different types
-:link                      an unvisited link
-                                                          pc                    pica (1p = 12 points)
-                                                                                                                   Class      Multiple          .sampleclass { text-
-:disabled                  an element while the                                                                               elements of       decoration: underline; }
-                                                          pt                    point (1pt = 1/72 inch)
-                           element is disabled                                                                                different types
-                                                                                                                              when you don't
-:enabled                   an element while the                         RELATIVE MEASUREMENT
-                                                                                                                              want to affect
-                           element is enabled
-                                                          ch                    width of the "0" glyph found in               all instances of
-                                                                                                                              that type
-:checked                   an element (form element                             the font for the font size used to
-                           control) that is checked                             render
-                                                                                                                   Id         A single          #sampleid { text-
-                                                                                                                              element type      decoration: underline; }
-:selection                 an element that is currently   em                    1em = current font size of
-                                                                                                                              when you don't
-                           selected of highlighted by                           current element
-                                                                                                                              want to affect
-                           the user
-                                                          ex                    x-height of the element's font                all instances of
-:lang                      Allows the author to specify                                                                       that type
-                                                          gd                    the grid defined by 'layout-grid'
-                           a language to use in a
-                                                                                                                   Descendant An element that #gallery h1 { text-
-                           specified element              px                    pixel of the viewing device
-                                                                                                                              is below (in the decoration: underline; }
-:nth-child(n)              an element that is the n-th                                                                        document tree)
-                                                          rem                   the font size of the root element
-                           sibling                                                                                            another
-                                                          vh                    the viewport's height                         element--no
-:nth-last-child(n)         an element that is the n-th                                                                        matter how
-                           sibling counting from the      vw                    the viewport's width                          many levels
-                           last sibling                                                                                       below
-                                                          vm                    viewport's height or width,
-:first-child               an element that is the first                         whichever is smaller of the two    Child      An element that #title > p { font-weight:
-                           sibling                                                                                            is directly below bold; }
-                                                                               ANGLES
-                                                                                                                              (in the
-:last-child                an element that is the last
-                                                                                                                              document tree)
-                           sibling                        deg                   degrees
-                                                                                                                              another
-                                                                                                                              element
-:only-child                an element that is the only    grad                  grads
-                           child
-                                                          rad                   radians                            Adjacent   All elements      h1 + p { font-style:
-                                                                                                                   Sibling    that share the    italic; }
-:nth-of-type(n)            an element that is the n-th
-                                                          turn                  turns                                         same parent
-                           sibling of its type.
-                                                                                                                              and elements
-                                                                                  TIME
-:nth-last-of-type(n)       an element that is the n-th                                                                        are in the same
-                           sibling of its type counting                                                                       immediate
-                                                          ms                    milli-seconds
-                           from the last sibling                                                                              sequence
-                                                          s                     seconds
-:last-of-type              an element that is the first                                                            General    All elements      h1 ~ p { font-style:
-                           sibling of its type                                FREQUENCY                            Sibling    that share the    italic; }
-                                                                                                                              same parent
-:first-of-type             an element that is the last    Hz                    hertz                                         and elements
-                           sibling of its type                                                                                are in the same
-                                                          kHz                   kilo-hertz                                    sequence (not
-:only-of-type              an element that is the only                                                                        necessarily
-                           child of that type                                  COLORS
-                                                                                                                              immediate)
-:empty                     an element that has no         color name            red, blue, green, dark green
-                                                                                                                   Attribute  An element with E[selected] - att whatever
-                           children                                                                                           that matches      the value
-                                                          rgb(x,y,z)            red = rgb(255,0,0)
-                                                                                                                              the attribute     E[att="val"] - att with a
-:root                      root element within the
-                                                                                                                              listed            specific value
-                           document                       rgb(x%,y%,z%)         red = rgb(100%,0,0)
-                                                                                                                                                E[rel~="next"] - att with
-:not(x)                    an element not represented     rgba(x,y,z, alpha)    red = rgba(255,0,0)                                             a value is a whitespace
-                           by the argument `x'                                                                                                  separated list
-                                                          #rrggbb               red = #ff0000 (or shorthand =                                   *[lang|="en"] - att value
-:target                    a target element as specified                        #f00)                                                           either being exactly "val"
-                           by a target in a URI                                                                                                 or beginning with "val"
-                                                          hsl(hue, saturation, red = hsl(0, 100%, 50%)                                          immediately followed by
-                  PSEUDO-ELEMENT                          lightness)                                                                            "-"
-                                                                                                                                                E[att^="val"] - att value
-::first-letter            Adds special style to the first hsla(hue, saturation, red = hsl(0, 100%, 50%)
-                                                                                                                                                that begins with the prefix
-                          letter of a text                lightness, alpha)
-                                                                                                                                                "val"
-                                                                                                                                                E[att$="val"] - att value
-::first-line              Adds special style to the first flavor                An accent color (typically chosen
-                                                                                                                                                that end with the suffix
-                          line of a text                                        by the user) to customize the
-                                                                                                                                                "val"
-                                                                                user interface of the user agent
-::before                  Inserts some content before                                                                                           E[att*="val"] - att value
-                                                                                itsel
-                          an element                                                                                                            contains at least one
-                                                          currentColor          computed value of the                                           instance of the substring
-::after                   Inserts some content after an                         'currentColor' keyword is the                                   "val"
-                          element                                               computed value of the 'color'
-                                                                                propertyhttp://www.veign.com                                                  Part Number: QRG0008                                    �2009 Veign, All Rights Reserved
+                       vertical | inherit
