@@ -2,233 +2,214 @@
 log = (args...) -> console.log ' TCSS:', args...
 
 directives = [
-  'alignmentadjust', 'alignmentbaseline', 'animation', 'animationdelay', 'animationdirection', 
-  'animationduration', 'animationiterationcount', 'animationname', 'animationplaystate', 
-  'animationtimingfunction', 'appearance', 'backfacevisibility', 'background', 'backgroundattachment', 
-  'backgroundbreak', 'backgroundclip', 'backgroundcolor', 'backgroundimage', 'backgroundorigin', 
-  'backgroundposition', 'backgroundrepeat', 'backgroundsize', 'baselineshift', 'bookmarklabel', 
-  'bookmarklevel', 'bookmarktarget', 'border', 'borderbottom', 'borderbottomcolor', 
-  'borderbottomleftradius', 'borderbottomrightradius', 'borderbottomstyle', 'borderbottomwidth', 
-  'borderbreak', 'bordercollapse', 'bordercollapse', 'bordercolor', 'borderimage', 
-  'borderleft', 'borderleftcolor', 'borderleftstyle', 'borderleftwidth', 'borderlength', 
-  'borderradius', 'borderright', 'borderrightcolor', 'borderrightstyle', 'borderrightwidth', 
-  'borderspacing', 'borderstyle', 'bordertop', 'bordertopcolor', 'bordertopleftradius', 
-  'bordertoprightradius', 'bordertopstyle', 'bordertopwidth', 'borderwidth', 'bottom', 
-  'boxalign', 'boxdirection', 'boxflex', 'boxflexgroup', 'boxlines', 'boxorient', 'boxpack', 
-  'boxshadow', 'boxsizing', 'captionside', 'clear', 'clip', 'color', 'columncount', 
-  'columnfill', 'columngap', 'columnrule', 'columnrulecolor', 'columnrulestyle', 'columnrulewidth', 
-  'columns', 'columnspan', 'columnwidth', 'content', 'counterincrement', 'counterreset', 
-  'crop', 'cue', 'cueafter', 'cuebefore', 'cursor', 'direction', 'display', 'display', 
-  'dominantbaseline', 'dropinitialafteradjust', 'dropinitialafteralign', 'dropinitialbeforeadjust', 
-  'dropinitialbeforealign', 'dropinitialsize', 'dropinitialvalue', 'emptycells', 'fit', 
-  'fitposition', 'float', 'floatoffset', 'font', 'fontfamily', 'fontsize', 'fontsizeadjust', 
-  'fontstretch', 'fontstyle', 'fontvariant', 'fontweight', 'gridcolumns', 'gridrows', 
-  'hangingpunctuation', 'height', 'hyphenateafter', 'hyphenatebefore', 'hyphenatecharacter', 
-  'hyphenatelines', 'hyphenateresource', 'hyphens', 'icon', 'imageorientation', 'imageresolution', 
-  'inlineboxalign', 'left', 'letterspacing', 'lineheight', 'linestacking', 'linestackingruby', 
-  'linestackingshift', 'linestackingstrategy', 'liststyle', 'liststyleimage', 'liststyleposition', 
-  'liststyletype', 'margin', 'marginbottom', 'marginleft', 'marginright', 'margintop', 
-  'mark', 'markafter', 'markbefore', 'markeroffset', 'marks', 'marqueedirection', 'marqueeloop', 
-  'marqueeplaycount', 'marqueespeed', 'marqueestyle', 'maxheight', 'maxwidth', 'minheight', 
-  'minwidth', 'moveto', 'navdown', 'navindex', 'navleft', 'navright', 'navup', 'opacity', 
-  'orphans', 'outline', 'outlinecolor', 'outlineoffset', 'outlinestyle', 'outlinewidth', 
-  'overflow', 'overflowstyle', 'overflowx', 'overflowy', 'padding', 'paddingbottom', 
-  'paddingleft', 'paddingright', 'paddingtop', 'page', 'pagebreakafter', 'pagebreakbefore', 
-  'pagebreakinside', 'pagepolicy', 'pause', 'pauseafter', 'pausebefore', 'perspective', 
-  'perspectiveorigin', 'phonemes', 'position', 'punctuationtrim', 'quotes', 'resize', 
-  'rest', 'restafter', 'restbefore', 'right', 'rotation', 'rotationpoint', 'rubyalign', 
-  'rubyoverhang', 'rubyposition', 'rubyspan', 'size', 'speak', 'stringset', 'tablelayout', 
-  'tabside', 'target', 'targetname', 'targetnew', 'targetposition', 'textalign', 'textalignlast', 
-  'textdecoration', 'textemphasis', 'textheight', 'textindent', 'textjustify', 'textoutline', 
-  'textreplace', 'textshadow', 'texttransform', 'textwrap', 'top', 'transform', 'transformorigin', 
-  'transformstyle', 'transition', 'transitiondelay', 'transitionduration', 'transitionproperty', 
-  'transitiontimingfunction', 'unicodebidi', 'verticalalign', 'voicebalance', 'voiceduration', 
-  'voicefamily', 'voicepitch', 'voicepitchrange', 'voicerate', 'voicestress', 'voicevolume', 
-  'whitespace', 'whitespacecollapse', 'width', 'windows', 'wordbreak', 'wordspacing', 
-  'wordwrap', 'zindex'
+  'cue', 'fit', 'top', 'page', 'font', 'crop', 'icon', 'mark', 'size', 'rest', 'left', 
+  'clip', 'marks', 'float', 'right', 'color', 'width', 'clear', 'pause', 'speak', 'border', 
+  'margin', 'height', 'cursor', 'bottom', 'nav-up', 'target', 'quotes', 'resize', 'orphans', 
+  'move-to', 'content', 'display', 'z-index', 'hyphens', 'outline', 'opacity', 'windows', 
+  'columns', 'display', 'padding', 'box-flex', 'nav-left', 'position', 'tab-side', 
+  'nav-down', 'phonemes', 'overflow', 'rotation', 'box-pack', 'box-lines', 'font-size', 
+  'min-width', 'box-align', 'nav-index', 'nav-right', 'ruby-span', 'max-width', 'cue-after', 
+  'word-wrap', 'text-wrap', 'transform', 'direction', 'grid-rows', 'animation', 'transition', 
+  'background', 'border-top', 'appearance', 'ruby-align', 'box-shadow', 'max-height', 
+  'min-height', 'overflow-x', 'overflow-y', 'target-new', 'string-set', 'list-style', 
+  'voice-rate', 'rest-after', 'mark-after', 'text-align', 'cue-before', 'box-sizing', 
+  'box-orient', 'font-style', 'column-gap', 'word-break', 'margin-top', 'page-policy', 
+  'padding-top', 'column-fill', 'column-rule', 'font-weight', 'column-span', 'text-indent', 
+  'text-shadow', 'font-family', 'perspective', 'white-space', 'line-height', 'empty-cells', 
+  'text-height', 'mark-before', 'pause-after', 'rest-before', 'border-left', 'target-name', 
+  'voice-pitch', 'margin-left', 'column-count', 'border-right', 'text-justify', 'marquee-loop', 
+  'text-replace', 'float-offset', 'border-width', 'caption-side', 'fit-position', 'table-layout', 
+  'border-color', 'border-break', 'unicode-bidi', 'text-outline', 'border-style', 'pause-before', 
+  'word-spacing', 'border-image', 'column-width', 'font-variant', 'margin-right', 'voice-family', 
+  'padding-left', 'font-stretch', 'grid-columns', 'voice-stress', 'voice-volume', 'border-bottom', 
+  'margin-bottom', 'marker-offset', 'padding-right', 'border-length', 'marquee-style', 
+  'line-stacking', 'counter-reset', 'marquee-speed', 'voice-balance', 'ruby-overhang', 
+  'text-emphasis', 'ruby-position', 'box-direction', 'border-radius', 'outline-width', 
+  'outline-color', 'outline-style', 'animation-name', 'box-flex-group', 'padding-bottom', 
+  'rotation-point', 'baseline-shift', 'bookmark-level', 'voice-duration', 'border-spacing', 
+  'text-transform', 'overflow-style', 'vertical-align', 'bookmark-label', 'outline-offset', 
+  'letter-spacing', 'text-align-last', 'border-collapse', 'hyphenate-after', 'hyphenate-lines', 
+  'text-decoration', 'border-collapse', 'background-clip', 'bookmark-target', 'transform-style', 
+  'animation-delay', 'list-style-type', 'background-size', 'target-position', 'border-top-width', 
+  'transition-delay', 'font-size-adjust', 'background-break', 'alignment-adjust', 'inline-box-align', 
+  'hyphenate-before', 'background-color', 'punctuation-trim', 'list-style-image', 'background-image', 
+  'transform-origin', 'border-top-color', 'image-resolution', 'border-top-style', 'page-break-after', 
+  'background-origin', 'image-orientation', 'background-repeat', 'voice-pitch-range', 
+  'border-left-color', 'border-left-style', 'border-left-width', 'counter-increment', 
+  'dominant-baseline', 'page-break-inside', 'drop-initial-size', 'page-break-before', 
+  'marquee-direction', 'column-rule-color', 'column-rule-width', 'column-rule-style', 
+  'marquee-play-count', 'perspective-origin', 'line-stacking-ruby', 'border-right-color', 
+  'border-right-width', 'drop-initial-value', 'animation-duration', 'alignment-baseline', 
+  'border-right-style', 'hyphenate-resource', 'animation-direction', 'line-stacking-shift', 
+  'list-style-position', 'border-bottom-color', 'transition-duration', 'background-position', 
+  'hyphenate-character', 'hanging-punctuation', 'border-bottom-width', 'border-bottom-style', 
+  'transition-property', 'backface-visibility', 'white-space-collapse', 'animation-play-state', 
+  'background-attachment', 'border-top-left-radius', 'line-stacking-strategy', 'border-top-right-radius', 
+  'drop-initial-after-align', 'animation-timing-function', 'drop-initial-before-align', 
+  'drop-initial-after-adjust', 'animation-iteration-count', 'border-bottom-left-radius', 
+  'drop-initial-before-adjust', 'transition-timing-function', 'border-bottom-right-radius'
 ]
 
 values = {
-  alignmentadjust:['afteredge', 'alphabetic', 'auto', 'baseline', 'beforeedge', 'central', 'hang', 'ideographic', 'middle', 'textafteredge', 'textbeforeedge'], 
-  alignmentbaseline:['afteredge', 'alphabetic', 'baseline', 'beforeedge', 'central', 'hanging', 'ideographic', 'mathematical', 'middle', 'textafteredge', 'textbeforeedge', 'usescript'], 
-  animationdirection:['alternate', 'normal'], animationname:['none'], 
-  animationplaystate:['paused', 'running'], animationtimingfunction:['ease', 'easein', 'easeinout', 'easeout', 'linear'], 
-  appearance:['button', 'checkbox', 'checkboxgroup', 'combobox', 'desktop', 'dialog', 'document', 'field', 'hyperlink', 'icon', 'inherit', 'listmenu', 'menu', 'menubar', 'menuitem', 'normal', 'outlinetree', 'password', 'popupmenu', 'pulldownmenu', 'pushbutton', 'radiobutton', 'radiogroup', 'range', 'signature', 'tab', 'tooltip', 'window', 'workspace'], 
-  backfacevisibility:['hidden', 'visible'], backgroundattachment:['fixed', 'scroll'], 
-  backgroundbreak:['boundingbox', 'continuous', 'eachbox'], backgroundclip:['borderbox', 'contentbox', 'noclip', 'paddingbox'], 
-  backgroundimage:['none'], backgroundorigin:['borderbox', 'paddingbox'], 
-  backgroundposition:['bottomcenter', 'bottomleft', 'bottomright', 'centercenter', 'centerleft', 'centerright', 'topcenter', 'topleft', 'topright'], 
-  backgroundrepeat:['norepeat', 'repeat', 'repeatx', 'repeaty'], 
-  backgroundsize:['auto', 'contain', 'cover'], baselineshift:['baseline', 'sub', 'super'], 
-  bookmarklevel:['none'], borderbottomwidth:['medium', 'thick', 'thin'], 
-  bordercollapse:['collapse', 'separate'], bordercollapse:['collapse', 'separate'], 
-  borderimage:['none', 'repeat', 'round', 'stretch'], borderleftwidth:['medium', 'thick', 'thin'], 
-  borderrightwidth:['medium', 'thick', 'thin'], borderstyle:['dashed', 'dotted', 'double', 'groove', 'hidden', 'inset', 'none', 'ridge', 'solid'], 
-  bordertopwidth:['medium', 'thick', 'thin'], borderwidth:['medium', 'thick', 'thin'], 
-  boxalign:['center', 'end', 'start'], boxdirection:['normal', 'reverse'], 
-  boxlines:['multiple', 'single'], boxorient:['blockaxis', 'horizontal', 'inlineaxis', 'vertical'], 
-  boxpack:['center', 'end', 'justify', 'start'], boxshadow:['none'], 
-  boxsizing:['borderbox', 'contentbox', 'marginbox', 'paddingbox'], 
-  captionside:['bottom', 'left', 'right', 'top'], clear:['both', 'left', 'none', 'right'], 
-  columnfill:['auto', 'balance'], columnrulewidth:['medium', 'thick', 'thin'], 
-  columnspan:['1', 'all'], content:['inhibit', 'none', 'normal'], 
-  counterincrement:['none'], counterreset:['none'], cueafter:['inherit', 'loud', 'medium', 'none', 'soft', 'urisilent', 'xloud', 'xsoft'], 
-  cuebefore:['inherit', 'loud', 'medium', 'none', 'soft', 'urisilent', 'xloud', 'xsoft'], 
-  cursor:['auto', 'crosshair', 'default', 'eresize', 'help', 'move', 'neresize', 'nresize', 'nwresize', 'pointer', 'seresize', 'sresize', 'swresize', 'text', 'wait', 'wresize'], 
-  direction:['inherit', 'ltr', 'rtl'], display:['block', 'compact', 'inline', 'inlineblock', 'inlinetable', 'listitem', 'none', 'ruby', 'rubybase', 'rubybasegroup', 'rubytext', 'rubytextgroup', 'runin', 'table', 'tablecaption', 'tablecell', 'tablecolumn', 'tablecolumngroup', 'tablefootergroup', 'tableheadergroup', 'tablerow', 'tablerowgroup'], 
-  display:['listitem', 'none', 'normal'], dominantbaseline:['alphabetic', 'auto', 'central', 'hanging', 'ideographic', 'mathematical', 'middle', 'nochange', 'resetsize', 'textafteredge', 'textbeforeedge', 'usescript'], 
-  dropinitialafteradjust:['afteredge', 'alphabetic', 'central', 'ideographic', 'middle', 'textafteredge'], 
-  dropinitialbeforeadjust:['beforeedge', 'central', 'hanging', 'mathematical', 'middle', 'textbeforeedge'], 
-  emptycells:['hide', 'show'], fit:['fill', 'hidden', 'meet', 'slice'], 
-  fitposition:['bottom', 'center', 'left', 'right', 'top'], float:['left', 'none', 'right'], 
-  font:['caption', 'icon', 'menu', 'messagebox', 'smallcaption', 'statusbar'], 
-  fontsize:['inherit', 'large', 'larger', 'medium', 'small', 'smaller', 'xlarge', 'xsmall', 'xxlarge', 'xxsmall'], 
-  fontsizeadjust:['inherit', 'none'], fontstretch:['condensed', 'expanded', 'extracondensed', 'extraexpanded', 'inherit', 'narrower', 'normal', 'semicondensed', 'semiexpanded', 'ultracondensed', 'ultraexpanded', 'wider'], 
-  fontstyle:['inherit', 'italic', 'normal', 'oblique'], fontvariant:['inherit', 'normal', 'smallcaps'], 
-  fontweight:['100', '200', '300', '400', '500', '600', '700', '800', '900', 'bold', 'bolder', 'inherit', 'lighter', 'normal'], 
-  gridcolumns:['inherit', 'none'], gridrows:['inherit', 'none'], 
-  hangingpunctuation:['end', 'endedge', 'none', 'start'], hyphenateresource:['none'], 
-  hyphens:['auto', 'manual', 'none'], icon:['auto', 'inherit'], 
-  imageresolution:['auto', 'normal'], inlineboxalign:['initial', 'last'], 
-  linestackingruby:['excluderuby', 'includeruby'], linestackingshift:['considershifts', 'disregardshifts'], 
-  linestackingstrategy:['blocklineheight', 'inlinelineheight', 'maxheight'], 
-  liststyle:['liststyleimage', 'liststyleposition', 'liststyletype'], 
-  liststyleimage:['none'], liststyleposition:['inside', 'outside'], 
-  liststyletype:['armenian', 'asterisks', 'box', 'check', 'circle', 'cjkideographic', 'decimal', 'decimalleadingzero', 'diamond', 'disc', 'footnotes', 'georgian', 'hebrew', 'hiragana', 'hiraganairoha', 'hyphen', 'katakana', 'katakanairoha', 'loweralpha', 'lowergreek', 'lowerlatin', 'lowerroman', 'none', 'square', 'upperalpha', 'upperlatin', 'upperroman'], 
-  margin:['marginbottom', 'marginleft', 'marginright', 'margintop'], 
-  marks:['crop', 'cross', 'none'], marqueedirection:['forward', 'reverse'], 
-  marqueespeed:['fast', 'normal', 'slow'], marqueestyle:['alternate', 'scroll', 'slide'], 
-  maxheight:['none'], maxwidth:['none'], minheight:['inherit', 'none'], 
-  minwidth:['inherit', 'none'], moveto:['here', 'normal'], navdown:['auto', 'inheritcurrent', 'root'], 
-  navindex:['auto', 'inherit'], navleft:['auto', 'inheritcurrent', 'root'], 
-  navright:['auto', 'inheritcurrent', 'root'], navup:['auto', 'inheritcurrent', 'root'], 
-  outlinestyle:['dashed', 'dotted', 'double', 'groove', 'inset', 'none', 'outset', 'ridge', 'solid'], 
-  outlinewidth:['medium', 'thick', 'thin'], overflow:['auto', 'hidden', 'nocontent', 'nodisplay', 'overflowx', 'overflowy', 'scroll', 'visible'], 
-  overflowstyle:['auto', 'mar', 'marqueeline'], overflowx:['auto', 'hidden', 'no', 'nodisplay', 'scroll', 'visible'], 
-  overflowy:['auto', 'hidden', 'no', 'nodisplay', 'scroll', 'visible'], 
-  pagebreakafter:['always', 'auto', 'avoid', 'left'], pagebreakbefore:['always', 'auto', 'avoid', 'left'], 
-  pagebreakinside:['auto', 'avoid'], pagepolicy:['first', 'last', 'start'], 
-  pauseafter:['inherit', 'medium', 'none', 'strong', 'weak', 'xstrong', 'xweak'], 
-  pausebefore:['inherit', 'medium', 'none', 'strong', 'weak', 'xstrong', 'xweak'], 
-  perspective:['none'], perspectiveorigin:['bottom', 'bottomlength', 'center', 'center', 'center', 'center', 'left', 'left', 'length', 'length', 'percentage', 'right', 'rightpercentage', 'top', 'top'], 
-  position:['absolute', 'relative', 'static'], punctuationtrim:['adjacent', 'end', 'none', 'start'], 
-  quotes:['none'], resize:['both', 'horizontal', 'inherit', 'none', 'vertical'], 
-  restafter:['inherit', 'medium', 'none', 'strong', 'weak', 'xstrong', 'xweak'], 
-  restbefore:['inherit', 'medium', 'none', 'strong', 'weak', 'xstrong', 'xweak'], 
-  rubyalign:['auto', 'center', 'distributeletter', 'distributespace', 'end', 'left', 'lineedge', 'right', 'start'], 
-  rubyoverhang:['auto', 'end', 'none', 'start'], rubyposition:['after', 'before', 'inline', 'right'], 
-  rubyspan:['attrx', 'none'], size:['auto', 'landscape', 'portrait'], 
-  speak:['digits', 'inherit', 'literalpunctuation', 'none', 'nopunctuation', 'normal', 'spellout'], 
-  tablelayout:['auto', 'fixed'], tabside:['bottom', 'left', 'right', 'top'], 
-  targetname:['current', 'modal', 'new', 'parent', 'root'], targetnew:['none', 'tab', 'window'], 
-  targetposition:['above', 'behind', 'front'], textalign:['center', 'end', 'justify', 'left', 'right', 'start'], 
-  textalignlast:['center', 'end', 'justify', 'left', 'right', 'start'], 
-  textdecoration:['blink', 'linethrough', 'none', 'overline', 'underline'], 
-  textemphasis:['accent', 'after', 'before', 'circle', 'disc', 'dot', 'none'], 
-  textheight:['auto', 'fontsize', 'maxsize', 'textsize'], textjustify:['auto', 'distribute', 'intercluster', 'interideograph', 'interword', 'kashida', 'tibetan'], 
-  textoutline:['none'], textreplace:['none'], textshadow:['none'], 
-  texttransform:['capitalize', 'lowercase', 'none', 'uppercase'], 
-  textwrap:['none', 'normal', 'suppress', 'unrestricted'], transform:['matrix', 'matrix3d', 'none', 'perspective', 'rotate', 'rotate3d', 'rotatex', 'rotatey', 'rotatez', 'scale', 'scale3d', 'scalex', 'scaley', 'scalez', 'skew', 'skewx', 'skewy', 'translate3d', 'translatex', 'translatey', 'translatez'], 
-  transformorigin:['bottom', 'center', 'left', 'right', 'top'], 
-  transformstyle:['flat', 'preserve3d'], transitionproperty:['all', 'none'], 
-  transitiontimingfunction:['ease', 'easein', 'easeinout', 'easeout', 'linear'], 
-  unicodebidi:['bidi', 'embed', 'normal'], verticalalign:['baseline', 'bottom', 'middle', 'sub', 'super', 'textbottom', 'texttop', 'top'], 
-  voicebalance:['center', 'inherit', 'left', 'leftwards', 'right', 'rightwards'], 
-  voicefamily:['agegenericvoicenumber', 'inherit', 'specificvoice'], 
-  voicepitch:['high', 'inherit', 'low', 'medium', 'xhigh', 'xlow'], 
-  voicepitchrange:['high', 'inherit', 'low', 'medium', 'xhigh', 'xlow'], 
-  voicerate:['fast', 'inherit', 'medium', 'slow', 'xfast', 'xslow'], 
-  voicestress:['inherit', 'moderate', 'none', 'reduced', 'strong'], 
-  voicevolume:['inherit', 'loud', 'medium', 'silent', 'soft', 'xloud', 'xsoft'], 
-  whitespace:['normal', 'nowrap', 'pre', 'preline', 'prewrap'], 
-  whitespacecollapse:['collapse', 'discard', 'preserve', 'preservebreaks'], 
-  wordbreak:['breakall', 'breakstrict', 'keepall', 'loose', 'normal'], 
-  wordwrap:['breakword', 'normal']
+  fit:['fill', 'meet', 'slice', 'hidden'], font:['icon', 'menu', 'caption', 'status-bar', 'message-box', 'small-caption'], 
+  icon:['auto', 'inherit'], size:['auto', 'portrait', 'landscape'], 
+  marks:['crop', 'none', 'cross'], float:['left', 'none', 'right'], 
+  clear:['left', 'both', 'none', 'right'], speak:['none', 'normal', 'digits', 'inherit', 'spell-out', 'no-punctuation', 'literal-punctuation'], 
+  margin:['margin-top', 'margin-left', 'margin-right', 'margin-bottom'], 
+  cursor:['auto', 'help', 'wait', 'text', 'move', 'default', 'pointer', 'e-resize', 'n-resize', 'w-resize', 's-resize', 'ne-resize', 'se-resize', 'crosshair', 'nw-resize', 'sw-resize'], 
+  nav-up:['auto', 'root', 'inheritcurrent'], quotes:['none'], resize:['none', 'both', 'inherit', 'vertical', 'horizontal'], 
+  move-to:['here', 'normal'], content:['none', 'normal', 'inhibit'], 
+  display:['none', 'normal', 'list-item'], hyphens:['none', 'auto', 'manual'], 
+  display:['none', 'ruby', 'block', 'table', 'run-in', 'inline', 'compact', 'list-item', 'table-row', 'ruby-text', 'ruby-base', 'table-cell', 'inline-table', 'table-column', 'inline-block', 'table-caption', 'ruby-base-group', 'ruby-text-group', 'table-row-group', 'table-column-group', 'table-header-group', 'table-footer-group'], 
+  nav-left:['auto', 'root', 'inheritcurrent'], position:['static', 'relative', 'absolute'], 
+  tab-side:['top', 'left', 'right', 'bottom'], nav-down:['auto', 'root', 'inheritcurrent'], 
+  overflow:['auto', 'hidden', 'scroll', 'visible', 'no-display', 'no-content', 'overflow-x', 'overflow-y'], 
+  box-pack:['end', 'start', 'center', 'justify'], box-lines:['single', 'multiple'], 
+  font-size:['small', 'large', 'medium', 'larger', 'x-small', 'x-large', 'smaller', 'inherit', 'xx-small', 'xx-large'], 
+  min-width:['none', 'inherit'], box-align:['end', 'start', 'center'], 
+  nav-index:['auto', 'inherit'], nav-right:['auto', 'root', 'inheritcurrent'], 
+  ruby-span:['none', 'attrx'], max-width:['none'], cue-after:['soft', 'loud', 'none', 'x-soft', 'medium', 'x-loud', 'inherit', 'urisilent'], 
+  word-wrap:['normal', 'break-word'], text-wrap:['none', 'normal', 'suppress', 'unrestricted'], 
+  transform:['none', 'skew', 'skewy', 'skewx', 'scale', 'rotate', 'scalez', 'scaley', 'matrix', 'scalex', 'rotatey', 'scale3d', 'rotatez', 'rotatex', 'rotate3d', 'matrix3d', 'translatez', 'translatey', 'translatex', 'translate3d', 'perspective'], 
+  direction:['ltr', 'rtl', 'inherit'], grid-rows:['none', 'inherit'], 
+  appearance:['tab', 'menu', 'icon', 'field', 'range', 'normal', 'window', 'button', 'dialog', 'tooltip', 'menubar', 'desktop', 'inherit', 'checkbox', 'password', 'document', 'menu-item', 'list-menu', 'hyperlink', 'combo-box', 'signa-ture', 'work-space', 'pop-up-menu', 'radio-group', 'push-button', 'outline-tree', 'radio-button', 'pull-down-menu', 'checkbox-group'], 
+  ruby-align:['end', 'auto', 'left', 'start', 'right', 'center', 'line-edge', 'distribute-space', 'distribute-letter'], 
+  box-shadow:['none'], max-height:['none'], min-height:['none', 'inherit'], 
+  overflow-x:['auto', 'hidden', 'scroll', 'visible', 'no-display', 'no-content'], 
+  overflow-y:['auto', 'hidden', 'scroll', 'visible', 'no-display', 'no-content'], 
+  target-new:['tab', 'none', 'window'], list-style:['list-style-type', 'list-style-image', 'list-style-position'], 
+  voice-rate:['slow', 'fast', 'x-slow', 'medium', 'x-fast', 'inherit'], 
+  rest-after:['none', 'weak', 'x-weak', 'medium', 'strong', 'inherit', 'x-strong'], 
+  text-align:['end', 'left', 'start', 'right', 'center', 'justify'], 
+  cue-before:['soft', 'loud', 'none', 'x-soft', 'medium', 'x-loud', 'inherit', 'urisilent'], 
+  box-sizing:['border-box', 'margin-box', 'content-box', 'padding-box'], 
+  box-orient:['vertical', 'horizontal', 'block-axis', 'inline-axis'], 
+  font-style:['normal', 'italic', 'oblique', 'inherit'], word-break:['loose', 'normal', 'keep-all', 'break-all', 'break-strict'], 
+  page-policy:['last', 'start', 'first'], column-fill:['auto', 'balance'], 
+  font-weight:['300', '800', '700', '600', '100', '200', '500', '400', 'bold', 'bolder', 'normal', 'lighter'], 
+  column-span:['1', 'all'], text-shadow:['none'], perspective:['none'], 
+  white-space:['pre', 'normal', 'nowrap', 'pre-wrap', 'pre-line'], 
+  empty-cells:['show', 'hide'], text-height:['auto', 'max-size', 'font-size', 'text-size'], 
+  pause-after:['none', 'weak', 'x-weak', 'medium', 'strong', 'inherit', 'x-strong'], 
+  rest-before:['none', 'weak', 'x-weak', 'medium', 'strong', 'inherit', 'x-strong'], 
+  target-name:['new', 'root', 'modal', 'parent', 'current'], voice-pitch:['low', 'high', 'x-low', 'medium', 'x-high', 'inherit'], 
+  text-justify:['auto', 'kashida', 'tibetan', 'inter-word', 'distribute', 'inter-cluster', 'inter-ideograph'], 
+  text-replace:['none'], border-width:['thin', 'thick', 'medium'], 
+  caption-side:['top', 'left', 'right', 'bottom'], fit-position:['top', 'left', 'right', 'center', 'bottom'], 
+  table-layout:['auto', 'fixed'], unicode-bidi:['embed', 'normal', 'bidi-override'], 
+  text-outline:['none'], border-style:['none', 'solid', 'ridge', 'inset', 'hidden', 'dotted', 'dashed', 'double', 'groove'], 
+  pause-before:['none', 'weak', 'x-weak', 'medium', 'strong', 'inherit', 'x-strong'], 
+  border-image:['none', 'round', 'repeat', 'stretch'], font-variant:['normal', 'inherit', 'small-caps'], 
+  voice-family:['inherit', 'specific-voice', 'agegeneric-voicenumber'], 
+  font-stretch:['wider', 'normal', 'inherit', 'narrower', 'expanded', 'condensed', 'semi-expanded', 'extra-expanded', 'ultra-expanded', 'semi-condensed', 'ultra-condensed', 'extra-condensed'], 
+  grid-columns:['none', 'inherit'], voice-stress:['none', 'strong', 'reduced', 'inherit', 'moderate'], 
+  voice-volume:['soft', 'loud', 'silent', 'x-soft', 'medium', 'x-loud', 'inherit'], 
+  marquee-style:['slide', 'scroll', 'alternate'], counter-reset:['none'], 
+  marquee-speed:['slow', 'fast', 'normal'], voice-balance:['left', 'right', 'center', 'inherit', 'leftwards', 'rightwards'], 
+  ruby-overhang:['end', 'auto', 'none', 'start'], text-emphasis:['dot', 'none', 'disc', 'after', 'accent', 'circle', 'before'], 
+  ruby-position:['after', 'right', 'before', 'inline'], box-direction:['normal', 'reverse'], 
+  outline-width:['thin', 'thick', 'medium'], outline-style:['none', 'solid', 'ridge', 'inset', 'dotted', 'dashed', 'double', 'groove', 'outset'], 
+  animation-name:['none'], baseline-shift:['sub', 'super', 'baseline'], 
+  bookmark-level:['none'], text-transform:['none', 'uppercase', 'lowercase', 'capitalize'], 
+  overflow-style:['auto', 'marquee-line', 'marquee-block'], vertical-align:['sub', 'top', 'super', 'middle', 'bottom', 'baseline', 'text-top', 'text-bottom'], 
+  text-align-last:['end', 'left', 'start', 'right', 'center', 'justify'], 
+  border-collapse:['collapse', 'separate'], text-decoration:['none', 'blink', 'overline', 'underline', 'line-through'], 
+  border-collapse:['collapse', 'separate'], background-clip:['no-clip', 'border-box', 'padding-box', 'content-box'], 
+  transform-style:['flat', 'preserve-3d'], list-style-type:['box', 'none', 'disc', 'check', 'square', 'hebrew', 'circle', 'hyphen', 'diamond', 'decimal', 'katakana', 'hiragana', 'armenian', 'asterisks', 'footnotes', 'geor-gian', 'lower-latin', 'lower-alpha', 'lower-greek', 'upper-alpha', 'upper-roman', 'upper-latin', 'lower-roman', 'katakana-iroha', 'hira-gana-iroha', 'cjk-ideographic', 'decimal-leading-zero'], 
+  background-size:['auto', 'cover', 'contain'], target-position:['above', 'front', 'behind'], 
+  border-top-width:['thin', 'thick', 'medium'], font-size-adjust:['none', 'inherit'], 
+  background-break:['each-box', 'continuous', 'bounding-box'], 
+  alignment-adjust:['auto', 'middle', 'hanging', 'central', 'baseline', 'after-edge', 'alphabetic', 'before-edge', 'ideo-graphic', 'text-after-edge', 'text-before-edge'], 
+  inline-box-align:['last', 'initial'], punctuation-trim:['end', 'none', 'start', 'adjacent'], 
+  list-style-image:['none'], background-image:['none'], transform-origin:['top', 'left', 'right', 'center', 'bottom'], 
+  image-resolution:['auto', 'normal'], page-break-after:['auto', 'left', 'avoid', 'always'], 
+  background-origin:['border-box', 'padding-box'], background-repeat:['repeat', 'repeat-x', 'repeat-y', 'no-repeat'], 
+  voice-pitch-range:['low', 'high', 'x-low', 'medium', 'x-high', 'inherit'], 
+  border-left-width:['thin', 'thick', 'medium'], counter-increment:['none'], 
+  dominant-baseline:['auto', 'middle', 'hanging', 'central', 'no-change', 'reset-size', 'use-script', 'alpha-betic', 'ideo-graphic', 'mathematical', 'text-after-edge', 'text-before-edge'], 
+  page-break-inside:['auto', 'avoid'], page-break-before:['auto', 'left', 'avoid', 'always'], 
+  marquee-direction:['forward', 'reverse'], column-rule-width:['thin', 'thick', 'medium'], 
+  perspective-origin:['top', 'top', 'left', 'left', 'right', 'center', 'bottom', 'length', 'center', 'center', 'center', 'length', 'percentage', 'bottomlength', 'rightpercentage'], 
+  line-stacking-ruby:['exclude-ruby', 'include-ruby'], border-right-width:['thin', 'thick', 'medium'], 
+  alignment-baseline:['middle', 'central', 'hanging', 'baseline', 'after-edge', 'use-script', 'alphabetic', 'ideographic', 'before-edge', 'mathematical', 'text-after-edge', 'text-before-edge'], 
+  hyphenate-resource:['none'], animation-direction:['normal', 'alternate'], 
+  line-stacking-shift:['consider-shifts', 'disregard-shifts'], 
+  list-style-position:['inside', 'outside'], background-position:['top', 'right', 'center', 'bottomleft', 'bottom-left', 'bottom-right', 'bottom-center'], 
+  hanging-punctuation:['end', 'none', 'start', 'end-edge'], border-bottom-width:['thin', 'thick', 'medium'], 
+  transition-property:['all', 'none'], backface-visibility:['hidden', 'visible'], 
+  white-space-collapse:['discard', 'preserve', 'collapse', 'pre-serve-breaks'], 
+  animation-play-state:['paused', 'running'], background-attachment:['fixed', 'scroll'], 
+  line-stacking-strategy:['max-height', 'block-line-height', 'inline-line-height'], 
+  animation-timing-function:['ease', 'linear', 'ease-in', 'ease-out', 'ease-in-out'], 
+  drop-initial-after-adjust:['middle', 'central', 'after-edge', 'alphabetic', 'ideographic', 'text-after-edge'], 
+  drop-initial-before-adjust:['middle', 'central', 'hanging', 'before-edge', 'mathematical', 'text-before-edge'], 
+  transition-timing-function:['ease', 'linear', 'ease-in', 'ease-out', 'ease-in-out']
 }
 
-  raw: 'style'
-
-  script: 'script'
-
-  # Valid self-closing HTML 5 elements.
-  void: 'area base br col command embed hr img input keygen link meta param
- source track wbr'
-
-  obsolete: 'applet acronym bgsound dir frameset noframes isindex listing
- nextid noembed plaintext rb strike xmp big blink center font marquee multicol
- nobr spacer tt'
-
-  obsolete_void: 'basefont frame'
-
-# Create a unique list of element names merging the desired groups.
-merge_elements = (args...) ->
-  result = []
-  for a in args
-    for element in elements[a].split ' '
-      result.push element unless element in result
-  result
-
-
-class Teacup
+class Teacss
   constructor: ->
-    @htmlOut = null
+    @cssOut = null
 
-  resetBuffer: (html=null) ->
-    previous = @htmlOut
-    @htmlOut = html
+  setBuffer: (css=null) ->
+    previous = @cssOut
+    @cssOut = css
     return previous
 
   render: (template, args...) ->
-    previous = @resetBuffer('')
+    previous = @setBuffer('')
     try
       template(args...)
     finally
-      result = @resetBuffer previous
+      result = @setBuffer previous
     return result
 
-  # alias render for coffeecup compatibility
-  cede: (args...) -> @render(args...)
-
   renderable: (template) ->
-    teacup = @
+    teacss = @
     return (args...) ->
-      if teacup.htmlOut is null
-        teacup.htmlOut = ''
+      if teacss.cssOut is null
+        teacss.cssOut = ''
         try
           template.apply @, args
         finally
-          result = teacup.resetBuffer()
+          result = teacss.setBuffer()
         return result
       else
         template.apply @, args
+        
+  fuzzyMatch: (txt, names) ->
+    for name in names
+      lastIndex = 0
+      failed = no
+      for chr in txt
+        regex = new RexExp chr, 'g'
+        regex.lastIndex = lastIndex
+        if not (matches = regex.exec name)
+          failed = yes
+          break
+        lastIndex = regex.lastIndex
+      if not failed then return name
+    return txt    
 
-  renderAttr: (name, value) ->
-    if not value?
-      return " #{name}"
+  renderDirective: (name, value) ->
+    if typeof value not in ['string','number']
+      return " #{name}:teacss-bad-value;"
 
-    if value is false
-      return ''
+    
 
-    if name is 'data' and typeof value is 'object'
-      return (@renderAttr "data-#{k}", v for k,v of value).join('')
 
-    if value is true
-      value = name
 
-    return " #{name}=#{@quote @escape value.toString()}"
 
-  attrOrder: ['id', 'class']
-  renderAttrs: (obj) ->
+  renderDirectives: (obj) ->
     result = ''
 
-    # render explicitly ordered attributes first
-    for name in @attrOrder when name of obj
-      result += @renderAttr name, obj[name]
+    # render explicitly ordered directiveibutes first
+    for name in @directiveOrder when name of obj
+      result += @renderDirective name, obj[name]
 
-    # then unordered attrs
+    # then unordered directives
     for name, value of obj
-      continue if name in @attrOrder
-      result += @renderAttr name, value
+      continue if name in @directiveOrder
+      result += @renderDirective name, value
 
     return result
 
@@ -257,7 +238,7 @@ class Teacup
     return {id, classes}
 
   normalizeArgs: (args) ->
-    attrs = {}
+    directives = {}
     selector = null
     contents = null
 
@@ -273,7 +254,7 @@ class Teacup
           contents = arg
         when 'object'
           if arg.constructor == Object
-            attrs = arg
+            directives = arg
           else
             contents = arg
         else
@@ -281,38 +262,38 @@ class Teacup
 
     if parsedSelector?
       {id, classes} = parsedSelector
-      attrs.id = id if id?
+      directives.id = id if id?
       if classes?.length
-        if attrs.class
-          classes.push attrs.class
-        attrs.class = classes.join(' ')
+        if directives.class
+          classes.push directives.class
+        directives.class = classes.join(' ')
 
-    return {attrs, contents, selector}
+    return {directives, contents, selector}
 
   tag: (tagName, args...) ->
-    {attrs, contents} = @normalizeArgs args
-    @raw "<#{tagName}#{@renderAttrs attrs}>"
+    {directives, contents} = @normalizeArgs args
+    @raw "<#{tagName}#{@renderDirectives directives}>"
     @renderContents contents
     @raw "</#{tagName}>"
 
   rawTag: (tagName, args...) ->
-    {attrs, contents} = @normalizeArgs args
-    @raw "<#{tagName}#{@renderAttrs attrs}>"
+    {directives, contents} = @normalizeArgs args
+    @raw "<#{tagName}#{@renderDirectives directives}>"
     @raw contents
     @raw "</#{tagName}>"
 
   scriptTag: (tagName, args...) ->
-    {attrs, contents} = @normalizeArgs args
-    @raw "<#{tagName}#{@renderAttrs attrs}>"
+    {directives, contents} = @normalizeArgs args
+    @raw "<#{tagName}#{@renderDirectives directives}>"
     @renderContents contents
     @raw "</#{tagName}>"
 
 
   selfClosingTag: (tag, args...) ->
-    {attrs, contents} = @normalizeArgs args
+    {directives, contents} = @normalizeArgs args
     if contents
-      throw new Error "Teacup: <#{tag}/> must not have content.  Attempted to nest #{contents}"
-    @raw "<#{tag}#{@renderAttrs attrs} />"
+      throw new Error "Teacss: <#{tag}/> must not have content.  Attempted to nest #{contents}"
+    @raw "<#{tag}#{@renderDirectives directives} />"
 
   coffeescript: (fn) ->
     @raw """<script type="text/javascript">(function() {
@@ -335,14 +316,14 @@ class Teacup
     @raw "<![endif]-->"
 
   text: (s) ->
-    unless @htmlOut?
-      throw new Error("Teacup: can't call a tag function outside a rendering context")
-    @htmlOut += s? and @escape(s.toString()) or ''
+    unless @cssOut?
+      throw new Error("Teacss: can't call a tag function outside a rendering context")
+    @cssOut += s? and @escape(s.toString()) or ''
     null
 
   raw: (s) ->
     return unless s?
-    @htmlOut += s
+    @cssOut += s
     null
 
   #
@@ -350,7 +331,7 @@ class Teacup
   # return strings instead of appending to buffer
   #
 
-  # Don't escape single quote (') because we always quote attributes with double quote (")
+  # Don't escape single quote (') because we always quote directiveibutes with double quote (")
   escape: (text) ->
     text.toString().replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
@@ -384,34 +365,34 @@ class Teacup
 
   component: (func) ->
     (args...) =>
-      {selector, attrs, contents} = @normalizeArgs(args)
+      {selector, directives, contents} = @normalizeArgs(args)
       renderContents = (args...) =>
         args.unshift contents
         @renderContents.apply @, args
-      func.apply @, [selector, attrs, renderContents]
+      func.apply @, [selector, directives, renderContents]
 
 # Define tag functions on the prototype for pretty stack traces
 for tagName in merge_elements 'regular', 'obsolete'
   do (tagName) ->
-    Teacup::[tagName] = (args...) -> @tag tagName, args...
+    Teacss::[tagName] = (args...) -> @tag tagName, args...
 
 for tagName in merge_elements 'raw'
   do (tagName) ->
-    Teacup::[tagName] = (args...) -> @rawTag tagName, args...
+    Teacss::[tagName] = (args...) -> @rawTag tagName, args...
 
 for tagName in merge_elements 'script'
   do (tagName) ->
-    Teacup::[tagName] = (args...) -> @scriptTag tagName, args...
+    Teacss::[tagName] = (args...) -> @scriptTag tagName, args...
 
 for tagName in merge_elements 'void', 'obsolete_void'
   do (tagName) ->
-    Teacup::[tagName] = (args...) -> @selfClosingTag tagName, args...
+    Teacss::[tagName] = (args...) -> @selfClosingTag tagName, args...
 
 if module?.exports
-  module.exports = new Teacup().tags()
-  module.exports.Teacup = Teacup
+  module.exports = new Teacss().tags()
+  module.exports.Teacss = Teacss
 else if typeof define is 'function' and define.amd
-  define('teacup', [], -> new Teacup().tags())
+  define('teacss', [], -> new Teacss().tags())
 else
-  window.teacup = new Teacup().tags()
-  window.teacup.Teacup = Teacup
+  window.teacss = new Teacss().tags()
+  window.teacss.Teacss = Teacss

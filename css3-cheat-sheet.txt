@@ -37,15 +37,13 @@ background-image        url                                                     
 background-origin       border-box | padding-box |
                         content-box                                                                            margin                 margin-top|
                                                      box-shadow                                                                       margin-right|
-background-position     topleft | topcenter | top-                              length, length  <color> ]                             margin-bottom|
-                        right | centerleft | center-                            none                                                  margin-left|
-                        center | center-right |
+background-position     top | center | bottom                                   length, length  <color> ]                             margin-bottom|
+                        left| right|                                            none                                                  margin-left|
                                                      border-style               none | hidden | dotted |
-                        bottom left | bottom center                                                            margin-bottom          auto
+                        bottom-left | bottom-center                                                            margin-bottom          auto
                                                                                 dashed | solid | double |
-                        | bottom right                                                                                                length
+                        | bottom-right                                                                                                length
                                                                                 groove | ridge | inset |
-                        x-% y-%                                                                                                       %
                                                                                 outset
                         x-pos y-pos
                                                                                                                margin-left            auto
@@ -105,20 +103,18 @@ border-image            image                        font-style                n
                                                      font-weight               normal | bold | bolder |
 border-left             border-left-width                                      lighter | 100 | 200 | 300 |     overflow               visible | hidden | scroll |
                                                                                400 | 500 | 600 | 700 | 800
-                        border-style                                                                                                  auto | no-display | no-
-                        border-color                                           | 900 | inherit                                        content|
+                        border-style                                                                                                  auto | no-display | no-content
                                                                                                                                       |overflow-x
 border-left-color       border-color                                                                                                  |overflow-y
-border-left-style       border-style                 clear                     left | right | both | none      overflow-style         auto | marquee-line | mar-
-                                                                                                                                      quee-block
+border-left-style       border-style                 clear                     left | right | both | none      overflow-style         auto | marquee-line | marquee-block
 border-left-width       thin | medium | thick        display                   none | inline | block | inline-
                         length                                                 block | list-item | run-in |    overflow-x             visible | hidden | scroll |
                                                                                compact | table | inline-                              auto | no-display | no-
-border-right            border-right-width                                     table | table-row-group |                              content
+border-right            border-right-width                                     table | table-row-group |                              content|
                         border-style                                           table-header-group | table-
                         border-color                                           footer-group | table-row |      overflow-y             visible | hidden | scroll |
                                                                                table-column-group | table-                            auto | no-display | no-
-border-right-color      border-color                                           column | table-cell | table-                           content
+border-right-color      border-color                                           column | table-cell | table-                           content |
                                                                                caption | ruby | ruby-base |
 border-right-style      border-style
                                                                                ruby-text | ruby-base-group     rotation               angle
@@ -179,7 +175,7 @@ text-wrap              normal | unrestricted | none                             
                        | suppress                                                                                                          alpha | lower-greek |
                                                         cue-after               uri [ silent | x-soft | soft |                             lower-latin | upper-latin |
 unicode-bidi           normal | embed | bidi-                                   medium | loud | x-loud] |                                  hebrew | armenian | geor-
-                       override                                                 none | inherit ]                                           gian | cjk-ideographic |
+                       override   |                                             none | inherit ]                                           gian | cjk-ideographic |
                                                                                 number                                                     hiragana | katakana | hira-
 white-space            normal | pre | nowrap | pre-
                                                                                 %                                                          gana-iroha | katakana-iroha
@@ -306,9 +302,9 @@ perspective-origin         [ [ [ percentage> |                                  
                            [ [ [ left | center | right ] ||                             edge | text-before-edge |      target-position            above | behind | front |
                            [ top | center | bottom ] ]                                  middle | central | after-edge                             back
                            <length> ]                                                   | text-after-edge | ideo-
-                                                                                        graphic | alphabetic | hang-
+                                                                                        graphic | alphabetic | hanging
 ~~~4
-transform                  none | matrix | matrix3d |                                   ing | mathematical
+transform                  none | matrix | matrix3d |                                       | mathematical
                            translate3d | translateX |                                   length                         bottom                    auto
                            translateY | translateZ |                                    %                                                        %
                            scale | scale3d | scaleX |                                                                                            length

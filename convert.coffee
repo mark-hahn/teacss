@@ -21,8 +21,8 @@ directives = []
 doCol = (pageNum, pos1, pos2, pos3) ->
   rgtstr = ''
   for line in pages[pageNum]
-    lft = line[pos1-1..pos2-2].toLowerCase().replace /\W/g, ''
-    rgt = line[pos2-1..pos3-1].toLowerCase().replace /[^\w|]/g, ''
+    lft = line[pos1-1..pos2-2].toLowerCase().replace /[^\w\-]/g, ''
+    rgt = line[pos2-1..pos3-1].toLowerCase().replace /[^\w\-\|]/g, ''
       
     if /^[a-z]/.test lft
       if lastLft
@@ -73,22 +73,22 @@ doCol 5, 120 ,146, 999
 
 doCol 6,   1,  24,  999
 
-directives.sort()
+directives.sort (a,b) -> a[0].length - b[0].length
 line = ''
 
-# for d in directives
-#   line += "'" + d[0] + "', "
-#   if line.length > 80
-#     fs.appendFileSync 'conv-out.txt', line + '\n' 
-#     line = ''
-# fs.appendFileSync 'conv-out.txt', line + '\n' 
-  
-for d in directives when d[1].length
-  d[1].sort()
-  values = d[1].join "', '"
-  line += d[0] + ":['" + values + "'], "
-  if line.length > 60
+for d in directives
+  line += "'" + d[0] + "', "
+  if line.length > 80
     fs.appendFileSync 'conv-out.txt', line + '\n' 
     line = ''
 fs.appendFileSync 'conv-out.txt', line + '\n' 
+  
+# for d in directives when d[1].length
+#   d[1].sort  (a,b) -> a.length - b.length
+#   values = d[1].join "', '"
+#   line += d[0] + ":['" + values + "'], "
+#   if line.length > 60
+#     fs.appendFileSync 'conv-out.txt', line + '\n' 
+#     line = ''
+# fs.appendFileSync 'conv-out.txt', line + '\n' 
   
