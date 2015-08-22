@@ -1,3 +1,4 @@
 node_modules
 *.sh
 conv-out.txt
+npm-debug.log
