@@ -1,7 +1,7 @@
 {
   "name": "teacss",
   "version": "1.1.0",
-  "description": "Generate css and accessor functions from a javascript object with namespace and nested class names",
+  "description": "Generate css from coffeescript with namespace and nested class names",
   "main": "lib/index.js",
   "repository": {
     "type": "git",

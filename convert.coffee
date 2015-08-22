@@ -76,19 +76,19 @@ doCol 6,   1,  24,  999
 directives.sort (a,b) -> a[0].length - b[0].length
 line = ''
 
-for d in directives
-  line += "'" + d[0] + "', "
-  if line.length > 80
-    fs.appendFileSync 'conv-out.txt', line + '\n' 
-    line = ''
-fs.appendFileSync 'conv-out.txt', line + '\n' 
-  
-# for d in directives when d[1].length
-#   d[1].sort  (a,b) -> a.length - b.length
-#   values = d[1].join "', '"
-#   line += d[0] + ":['" + values + "'], "
-#   if line.length > 60
+# for d in directives
+#   line += "'" + d[0] + "', "
+#   if line.length > 80
 #     fs.appendFileSync 'conv-out.txt', line + '\n' 
 #     line = ''
 # fs.appendFileSync 'conv-out.txt', line + '\n' 
+  
+for d in directives when d[1].length
+  d[1].sort  (a,b) -> a.length - b.length
+  values = d[1].join "', '"
+  line += d[0].replace(/-/g, '') + ":['" + values + "'], "
+  if line.length > 60
+    fs.appendFileSync 'conv-out.txt', line + '\n' 
+    line = ''
+fs.appendFileSync 'conv-out.txt', line + '\n' 
   

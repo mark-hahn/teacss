@@ -1,6 +1,6 @@
 # teacss
 
-** Generate css and accessor functions from a javascript object with namespace and nested class names
+**Generate css from coffeescript with namespace and nested class names**
 
 ### License
 
