@@ -156,6 +156,7 @@ class Teacss
     try
       dslFunc.apply @, args
     catch e
+      log 'render exception', e
     @cssOut
         
   fuzzyMatch: (txt, names) ->
@@ -163,7 +164,7 @@ class Teacss
     txtDashed = txt.toLowerCase()
     if txtDashed in names 
       # log 'fuzzyMatch exact match', txt, txtDashed
-      return txt2
+      return txtDashed
     txtNoDash = txtDashed.replace '-', ''
     firstChar = txtNoDash[0]
     restChar  = txtNoDash[1..]
