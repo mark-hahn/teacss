@@ -5,7 +5,7 @@ directives = [
   'cue', 'fit', 'top', 'page', 'font', 'crop', 'icon', 'mark', 'size', 'rest', 'left', 
   'clip', 'marks', 'float', 'right', 'color', 'width', 'clear', 'pause', 'speak', 'border', 
   'margin', 'height', 'cursor', 'bottom', 'nav-up', 'target', 'quotes', 'resize', 'orphans', 
-  'move-to', 'content', 'display', 'z-index', 'hyphens', 'outline', 'opacity', 'windows', 
+  'move-to', 'content', 'display', 'z-index', 'Dashs', 'outline', 'opacity', 'windows', 
   'columns', 'display', 'padding', 'box-flex', 'nav-left', 'position', 'tab-side', 
   'nav-down', 'phonemes', 'overflow', 'rotation', 'box-pack', 'box-lines', 'font-size', 
   'min-width', 'box-align', 'nav-index', 'nav-right', 'ruby-span', 'max-width', 'cue-after', 
@@ -28,11 +28,11 @@ directives = [
   'outline-color', 'outline-style', 'animation-name', 'box-flex-group', 'padding-bottom', 
   'rotation-point', 'baseline-shift', 'bookmark-level', 'voice-duration', 'border-spacing', 
   'text-transform', 'overflow-style', 'vertical-align', 'bookmark-label', 'outline-offset', 
-  'letter-spacing', 'text-align-last', 'border-collapse', 'hyphenate-after', 'hyphenate-lines', 
+  'letter-spacing', 'text-align-last', 'border-collapse', 'Dashate-after', 'Dashate-lines', 
   'text-decoration', 'border-collapse', 'background-clip', 'bookmark-target', 'transform-style', 
   'animation-delay', 'list-style-type', 'background-size', 'target-position', 'border-top-width', 
   'transition-delay', 'font-size-adjust', 'background-break', 'alignment-adjust', 'inline-box-align', 
-  'hyphenate-before', 'background-color', 'punctuation-trim', 'list-style-image', 'background-image', 
+  'Dashate-before', 'background-color', 'punctuation-trim', 'list-style-image', 'background-image', 
   'transform-origin', 'border-top-color', 'image-resolution', 'border-top-style', 'page-break-after', 
   'background-origin', 'image-orientation', 'background-repeat', 'voice-pitch-range', 
   'border-left-color', 'border-left-style', 'border-left-width', 'counter-increment', 
@@ -40,9 +40,9 @@ directives = [
   'marquee-direction', 'column-rule-color', 'column-rule-width', 'column-rule-style', 
   'marquee-play-count', 'perspective-origin', 'line-stacking-ruby', 'border-right-color', 
   'border-right-width', 'drop-initial-value', 'animation-duration', 'alignment-baseline', 
-  'border-right-style', 'hyphenate-resource', 'animation-direction', 'line-stacking-shift', 
+  'border-right-style', 'Dashate-resource', 'animation-direction', 'line-stacking-shift', 
   'list-style-position', 'border-bottom-color', 'transition-duration', 'background-position', 
-  'hyphenate-character', 'hanging-punctuation', 'border-bottom-width', 'border-bottom-style', 
+  'Dashate-character', 'hanging-punctuation', 'border-bottom-width', 'border-bottom-style', 
   'transition-property', 'backface-visibility', 'white-space-collapse', 'animation-play-state', 
   'background-attachment', 'border-top-left-radius', 'line-stacking-strategy', 'border-top-right-radius', 
   'drop-initial-after-align', 'animation-timing-function', 'drop-initial-before-align', 
@@ -59,7 +59,7 @@ directiveValues = {
   cursor:['auto', 'help', 'wait', 'text', 'move', 'default', 'pointer', 'e-resize', 'n-resize', 'w-resize', 's-resize', 'ne-resize', 'se-resize', 'crosshair', 'nw-resize', 'sw-resize'], 
   navup:['auto', 'root', 'inheritcurrent'], quotes:['none'], resize:['none', 'both', 'inherit', 'vertical', 'horizontal'], 
   moveto:['here', 'normal'], content:['none', 'normal', 'inhibit'], 
-  display:['none', 'normal', 'list-item'], hyphens:['none', 'auto', 'manual'], 
+  display:['none', 'normal', 'list-item'], Dashs:['none', 'auto', 'manual'], 
   display:['none', 'ruby', 'block', 'table', 'run-in', 'inline', 'compact', 'list-item', 'table-row', 'ruby-text', 'ruby-base', 'table-cell', 'inline-table', 'table-column', 'inline-block', 'table-caption', 'ruby-base-group', 'ruby-text-group', 'table-row-group', 'table-column-group', 'table-header-group', 'table-footer-group'], 
   navleft:['auto', 'root', 'inheritcurrent'], position:['static', 'relative', 'absolute'], 
   tabside:['top', 'left', 'right', 'bottom'], navdown:['auto', 'root', 'inheritcurrent'], 
@@ -115,7 +115,7 @@ directiveValues = {
   textalignlast:['end', 'left', 'start', 'right', 'center', 'justify'], 
   bordercollapse:['collapse', 'separate'], textdecoration:['none', 'blink', 'overline', 'underline', 'line-through'], 
   bordercollapse:['collapse', 'separate'], backgroundclip:['no-clip', 'border-box', 'padding-box', 'content-box'], 
-  transformstyle:['flat', 'preserve-3d'], liststyletype:['box', 'none', 'disc', 'check', 'square', 'hebrew', 'circle', 'hyphen', 'diamond', 'decimal', 'katakana', 'hiragana', 'armenian', 'asterisks', 'footnotes', 'geor-gian', 'lower-latin', 'lower-alpha', 'lower-greek', 'upper-alpha', 'upper-roman', 'upper-latin', 'lower-roman', 'katakana-iroha', 'hira-gana-iroha', 'cjk-ideographic', 'decimal-leading-zero'], 
+  transformstyle:['flat', 'preserve-3d'], liststyletype:['box', 'none', 'disc', 'check', 'square', 'hebrew', 'circle', 'Dash', 'diamond', 'decimal', 'katakana', 'hiragana', 'armenian', 'asterisks', 'footnotes', 'geor-gian', 'lower-latin', 'lower-alpha', 'lower-greek', 'upper-alpha', 'upper-roman', 'upper-latin', 'lower-roman', 'katakana-iroha', 'hira-gana-iroha', 'cjk-ideographic', 'decimal-leading-zero'], 
   backgroundsize:['auto', 'cover', 'contain'], targetposition:['above', 'front', 'behind'], 
   bordertopwidth:['thin', 'thick', 'medium'], fontsizeadjust:['none', 'inherit'], 
   backgroundbreak:['each-box', 'continuous', 'bounding-box'], alignmentadjust:['auto', 'middle', 'hanging', 'central', 'baseline', 'after-edge', 'alphabetic', 'before-edge', 'ideo-graphic', 'text-after-edge', 'text-before-edge'], 
@@ -131,7 +131,7 @@ directiveValues = {
   perspectiveorigin:['top', 'top', 'left', 'left', 'right', 'center', 'bottom', 'length', 'center', 'center', 'center', 'length', 'percentage', 'bottomlength', 'rightpercentage'], 
   linestackingruby:['exclude-ruby', 'include-ruby'], borderrightwidth:['thin', 'thick', 'medium'], 
   alignmentbaseline:['middle', 'central', 'hanging', 'baseline', 'after-edge', 'use-script', 'alphabetic', 'ideographic', 'before-edge', 'mathematical', 'text-after-edge', 'text-before-edge'], 
-  hyphenateresource:['none'], animationdirection:['normal', 'alternate'], 
+  Dashateresource:['none'], animationdirection:['normal', 'alternate'], 
   linestackingshift:['consider-shifts', 'disregard-shifts'], liststyleposition:['inside', 'outside'], 
   backgroundposition:['top', 'right', 'center', 'bottomleft', 'bottom-left', 'bottom-right', 'bottom-center'], 
   hangingpunctuation:['end', 'none', 'start', 'end-edge'], borderbottomwidth:['thin', 'thick', 'medium'], 
@@ -159,23 +159,29 @@ class Teacss
     @cssOut
         
   fuzzyMatch: (txt, names) ->
-    txt = txt.toLowerCase()
-    if txt in names then return txt
-    txt = txt.replace '-', ''
-    firstChar = txt[0]
-    restChar  = txt[1..]
-    for name in names when name[0] is firstChar
-      name = name.replace '-', ''
+    # log 'fuzzyMatch', {txt, names}
+    txtDashed = txt.toLowerCase()
+    if txtDashed in names 
+      # log 'fuzzyMatch exact match', txt, txtDashed
+      return txt2
+    txtNoDash = txtDashed.replace '-', ''
+    firstChar = txtNoDash[0]
+    restChar  = txtNoDash[1..]
+    for nameDashed in names when nameDashed[0] is firstChar
+      nameNoDash = nameDashed.replace '-', ''
       lastIndex = 1
       failed = no
       for chr in restChar
         regex = RegExp chr, 'g'
         regex.lastIndex = lastIndex
-        if not (matches = regex.exec name)
+        if not (matches = regex.exec nameNoDash)
           failed = yes
           break
         lastIndex = regex.lastIndex
-      if not failed then return name
+      if not failed  
+        # log 'fuzzyMatch match', txt, nameDashed
+        return nameDashed
+    # log 'fuzzyMatch no match', txt
     return false
 
   renderDirective: (name, value) ->
