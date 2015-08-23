@@ -201,9 +201,9 @@ class Teacss
     parts = selector.match /[#\.+][^#\.+]+/
     for part in parts
       switch part[0]
-        when '#' then ->
+        when '#'
           parsedSelector = part + parsedSelector
-        when '.' then ->
+        when '.'
           parsedSelector += part
         when '+'
           namespace = part[1...]
