@@ -53,6 +53,8 @@ directives = [
   'drop-initial-before-adjust', 'transition-timing-function', 'border-bottom-right-radius'
 ]
 
+directivesWithNoUnits = ['z-index', 'opacity', 'line-height']
+  
 directiveValues = {
   fit:['fill', 'meet', 'slice', 'hidden'], font:['icon', 'menu', 'caption', 'status-bar', 'message-box', 'small-caption'], 
   icon:['auto', 'inherit'], size:['auto', 'portrait', 'landscape'], 
@@ -152,19 +154,27 @@ directiveValues = {
 }
 
 class Teacss
-  render: (classNamespace, dslFunc, args...) ->
-    if typeof classNamespace is 'function'
+  render: (opts = {}, dslFunc, args...) ->
+    if typeof opts is 'function'
       args.unshift dslFunc
-      dslFunc = classNamespace
-      classNamespace = 'global'
+      dslFunc = opts
+      opts = {}
+    opts.nspace ?= 'global'
+    opts.unit   ?= 'px'
+    opts.head   ?= yes
+    {nspace: classNamespace, unit: @defaultUnit, head: addToHead} = opts
+    
+    @classesByLeaf = {}
     @cssOut = ''
     @classStack = [classNamespace]
     try
       dslFunc.apply @, args
     catch e
       log 'render exception', e
+    if addToHead
+      (document.head.appendChild document.createElement('style')).textContent = @cssOut
     @cssOut
-        
+
   fuzzyMatch: (txt, names) ->
     # log 'fuzzyMatch', {txt, names}
     txtDashed = txt.toLowerCase()
@@ -194,32 +204,35 @@ class Teacss
   renderDirective: (name, value) ->
     if typeof value not in ['string','number']
       return " #{name}:teacss-bad-value;"
-    if not name or not (dirctv = @fuzzyMatch name, directives)
+    value = value.toString()
+    if not name or not (directiveDashed = @fuzzyMatch name, directives)
       return " #{name}:teacss-no-match;"
-    directiveNoDash = dirctv.replace /-/g, ''
+    directiveNoDash = directiveDashed.replace /-/g, ''
     if not (values = directiveValues[directiveNoDash]) or
        not (val = @fuzzyMatch value, values)
-      val = value
-    "#{dirctv}:#{val};"
+        val = if /rgba?\s*\(/.test(value) or 
+                directiveDashed in directivesWithNoUnits then value \
+              else  
+                parts = value.split ' '
+                for part, idx in parts
+                  if not isNaN(part) and +part isnt 0 
+                    parts[idx] = part + @defaultUnit 
+                parts.join ' '
+    " #{directiveDashed}:#{val};"
 
   parseSelector: (selector) ->
-    parsedSelector = ''
-    parts = selector.match /[#\.+][^#\.+]+/
-    for part in parts
-      switch part[0]
-        when '#'
-          parsedSelector = part + parsedSelector
-        when '.'
-          parsedSelector += part
-        when '+'
-          namespace = part[1...]
-          parsedSelector += '.' + @classStack.join('-') + '-' + namespace
-    {namespace, selector: parsedSelector}
+    matches = selector.match /\+[\w-]+/g
+    for match in matches
+      leaf = match[1...]
+      fullClass = '.' + @classStack.join('-') + '-' + leaf
+      @classesByLeaf[leaf] = fullClass
+      selector = selector.replace match, fullClass
+    {leaf, selector}
     
-  renderFunction: (namespace, func) ->
-    @classStack.push namespace if namespace
+  renderFunction: (leaf, func) ->
+    @classStack.push leaf if leaf
     func.call @
-    @classStack.pop()          if namespace
+    @classStack.pop()     if leaf
 
   renderObj: (obj) ->
     result = ''
@@ -229,7 +242,7 @@ class Teacss
 
   _: (args...) ->
     if (arg = args[0]) and arg[0] in ['#', '.', '+']
-      {namespace, selector} = @parseSelector arg
+      {leaf, selector} = @parseSelector arg
     else
       log 'teacss: selector missing', args
       return
@@ -238,8 +251,11 @@ class Teacss
       switch typeof arg
         when 'string'   then css += arg
         when 'object'   then css += @renderObj arg
-        when 'function' then @renderFunction namespace, arg
+        when 'function' then @renderFunction leaf, arg
     @cssOut += css + '\n}'
+
+  getElement: (rootEle, classLeaf) ->
+    rootEle.querySelectorAll @classesByLeaf[classLeaf]
 
   comment: (text) ->
     @raw "/*#{text}*/"
@@ -252,10 +268,11 @@ class Teacss
     plugin @
     
   tags: -> 
-    rendercss:  @render .bind @
-    commentcss: @comment.bind @
-    rawcss:     @raw    .bind @
-    _:          @_      .bind @
+    rendercss:  @render     .bind @
+    getElement: @getElement .bind @
+    commentcss: @comment    .bind @
+    rawcss:     @raw        .bind @
+    _:          @_          .bind @
     
 if module?.exports
   module.exports = new Teacss().tags()
