@@ -222,7 +222,7 @@ class Teacss
 
   parseSelector: (selector) ->
     matches = selector.match /\+[\w-]+/g
-    for match in matches
+    for match in matches ? []
       leaf = match[1...]
       fullClass = '.' + @classStack.join('-') + '-' + leaf
       @classesByLeaf[leaf] = fullClass
