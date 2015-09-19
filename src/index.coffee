@@ -271,6 +271,7 @@ class Teacss
     plugin @
     
   tags: -> 
+    Teacss:     Teacss
     rendercss:  @render     .bind @
     teaCssEle:  @teaCssEle  .bind @
     teaCssName: @teaCssName .bind @
@@ -279,10 +280,8 @@ class Teacss
     _:          @_          .bind @
     
 if module?.exports
-  module.exports = new Teacss().tags()
-  module.exports.Teacss = Teacss
+  module.exports = -> new Teacss().tags()
 else if typeof define is 'function' and define.amd
   define('teacss', [], -> new Teacss().tags())
 else
-  window.teacss = new Teacss().tags()
-  window.teacss.Teacss = Teacss
+  window.teacss = -> new Teacss().tags()

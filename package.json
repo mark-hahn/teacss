@@ -1,6 +1,6 @@
 {
   "name": "teacss",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "description": "Generate css from coffeescript with namespace and nested class names",
   "main": "lib/index.js",
   "repository": {
