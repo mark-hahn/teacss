@@ -254,8 +254,11 @@ class Teacss
         when 'function' then @renderFunction leaf, arg
     @cssOut += css + '\n}'
 
-  getElement: (rootEle, classLeaf) ->
+  teaCssEle: (rootEle, classLeaf) ->
     rootEle.querySelectorAll @classesByLeaf[classLeaf]
+
+  teaCssName: (classLeaf) ->
+    @classesByLeaf[classLeaf]
 
   comment: (text) ->
     @raw "/*#{text}*/"
@@ -269,7 +272,8 @@ class Teacss
     
   tags: -> 
     rendercss:  @render     .bind @
-    getElement: @getElement .bind @
+    teaCssEle:  @teaCssEle  .bind @
+    teaCssName: @teaCssName .bind @
     commentcss: @comment    .bind @
     rawcss:     @raw        .bind @
     _:          @_          .bind @
