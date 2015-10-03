@@ -154,24 +154,25 @@ directiveValues = {
 }
 
 class Teacss
-  render: (opts = {}, dslFunc, args...) ->
+  render: (opts = {}, dslFunc) ->
     if typeof opts is 'function'
-      args.unshift dslFunc
       dslFunc = opts
       opts = {}
-    opts.nspace ?= 'global'
-    opts.unit   ?= 'px'
-    opts.head   ?= yes
-    {nspace: classNamespace, unit: @defaultUnit, head: addToHead} = opts
+      
+    opts.unit ?= 'px'
+    opts.head ?= yes
+    {space, unit, head} = opts
+    @unitStack     = [unit]
+    @selectorStack = []
+    @spaceStack    = []
+    if space then @spaceStack.push space
     
-    @classesByLeaf = {}
     @cssOut = ''
-    @classStack = [classNamespace]
     try
-      dslFunc.apply @, args
+      dslFunc.apply @
     catch e
       log 'render exception', e
-    if addToHead
+    if head
       (document.head.appendChild document.createElement('style')).textContent = @cssOut
     @cssOut
 
@@ -216,68 +217,77 @@ class Teacss
                 parts = value.split ' '
                 for part, idx in parts
                   if not isNaN(part) and +part isnt 0 
-                    parts[idx] = part + @defaultUnit 
+                    parts[idx] = part + @unitStack[@unitStack.length-1]
                 parts.join ' '
     " #{directiveDashed}:#{val};"
-
-  parseSelector: (selector) ->
-    matches = selector.match /\+[\w-]+/g
-    for match in matches ? []
-      leaf = match[1...]
-      fullClass = '.' + @classStack.join('-') + '-' + leaf
-      @classesByLeaf[leaf] = fullClass
-      selector = selector.replace match, fullClass
-    {leaf, selector}
     
-  renderFunction: (leaf, func) ->
-    @classStack.push leaf if leaf
-    func.call @
-    @classStack.pop()     if leaf
+  topSpace:    -> 
+    (if (space = @spaceStack[@spaceStack.length-1]) then space + '-' else '')
+  topSelector: (nestChar) ->  
+    (if (selector = @selectorStack[@selectorStack.length-1]) then selector + nestChar else '')
+   
+  addSpace: (selector) ->
+    lastIndex   = 0
+    newSelector = ''
+    regex = new RegExp '(#)%|(\\.)%', 'g'
+    while (matches = regex.exec selector)
+      newSelector += selector[lastIndex...matches.index]
+      [__, hash, dot] = matches
+      newSelector += (hash ? '') + (dot ? '') + @topSpace()
+      {lastIndex}  = regex
+    newSelector += selector[lastIndex...]
+    newSelector
 
-  renderObj: (obj) ->
-    result = ''
-    for name, value of obj
-      result += @renderDirective name, value
-    return result
-
-  _: (args...) ->
-    if (arg = args[0]) and arg[0] in ['#', '.', '+']
-      {leaf, selector} = @parseSelector arg
-    else
-      log 'teacss: selector missing', args
-      return
+  nestFunc: (nestChar, args...) ->
+    unit = space = selector = null
+    if args?[0]?[0] in ['#', '.']
+      arg = args.shift()
+      selectors = []
+      topsel = @topSelector nestChar
+      for sel in @addSpace(arg).split ','
+        selectors.push topsel + sel
+      selector = selectors.join ',\n'
     css = "\n#{selector} {\n"
-    for arg, index in args[1...] when arg
+    for arg, index in args when arg
       switch typeof arg
-        when 'string'   then css += arg
-        when 'object'   then css += @renderObj arg
-        when 'function' then @renderFunction leaf, arg
-    @cssOut += css + '\n}'
+        when 'string' then css += arg
+        when 'object'   
+          for name, value of arg
+            switch name
+              when '_unit'  then unit  = value
+              when '_space' then space = value
+              else css += @renderDirective name, value
+        when 'function'
+          @unitStack    .push unit     if unit
+          @spaceStack   .push space    if space
+          @selectorStack.push selector if selector
+          arg.call @
+          @unitStack    .pop() if unit
+          @spaceStack   .pop() if space
+          @selectorStack.pop() if selector
+    if selector then @cssOut += css + '\n}'
+    
+  _:  (args...) -> @nestFunc '',    args...
+  _s: (args...) -> @nestFunc ' ',   args...
+  _v: (args...) -> @nestFunc ' > ', args...
+  _p: (args...) -> @nestFunc ' + ', args...
 
-  teaCssEle: (rootEle, classLeaf) ->
-    rootEle.querySelectorAll @classesByLeaf[classLeaf]
+  comment: (text) -> @raw "/*#{text}*/"
 
-  teaCssName: (classLeaf) ->
-    @classesByLeaf[classLeaf]
+  raw: (s = '') -> @cssOut += s
 
-  comment: (text) ->
-    @raw "/*#{text}*/"
-
-  raw: (s) ->
-    return unless s?
-    @cssOut += s
-
-  use: (plugin) ->
-    plugin @
+  use: (plugin) -> plugin @
     
   tags: -> 
     Teacss:     Teacss
     rendercss:  @render     .bind @
-    teaCssEle:  @teaCssEle  .bind @
-    teaCssName: @teaCssName .bind @
     commentcss: @comment    .bind @
     rawcss:     @raw        .bind @
     _:          @_          .bind @
+    _a:         @_          .bind @
+    _s:         @_s         .bind @
+    _v:         @_v         .bind @
+    _p:         @_p         .bind @
     
 if module?.exports
   module.exports = -> new Teacss().tags()
