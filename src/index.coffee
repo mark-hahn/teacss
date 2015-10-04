@@ -229,11 +229,10 @@ class Teacss
   addSpace: (selector) ->
     lastIndex   = 0
     newSelector = ''
-    regex = new RegExp '(#)%|(\\.)%', 'g'
+    regex = new RegExp '(#|\\.)%', 'g'
     while (matches = regex.exec selector)
-      newSelector += selector[lastIndex...matches.index]
-      [__, hash, dot] = matches
-      newSelector += (hash ? '') + (dot ? '') + @topSpace()
+      newSelector += selector[lastIndex...matches.index] + 
+                     matches[1] + @topSpace()
       {lastIndex}  = regex
     newSelector += selector[lastIndex...]
     newSelector
@@ -290,8 +289,8 @@ class Teacss
     _p:         @_p         .bind @
     
 if module?.exports
-  module.exports = -> new Teacss().tags()
+  module.exports = new Teacss().tags()
 else if typeof define is 'function' and define.amd
   define('teacss', [], -> new Teacss().tags())
 else
-  window.teacss = -> new Teacss().tags()
+  window.teacss = new Teacss().tags()
